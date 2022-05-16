@@ -1,8 +1,9 @@
-import { View, Text, SafeAreaView, StyleSheet, Image, TouchableOpacity } from 'react-native'
+import { View, Text, SafeAreaView, StyleSheet, Image, TouchableOpacity ,ScrollView} from 'react-native'
 import React, { useEffect, useState } from 'react';
 import messaging from '@react-native-firebase/messaging';
 import LoginGoogle from './src/Screens/LoginGoogle';
 import LoginFaceBook from './src/Screens/LoginFaceBook';
+import CallApi from './src/Screens/CallApi';
 
 
 const App = () => {
@@ -57,18 +58,24 @@ const App = () => {
       });
   }, []);
 
+
   return (
     <SafeAreaView>
+      <ScrollView>
+      <View style={styles.LoginApp}>
+        <LoginGoogle styles={styles.LoginGoogle}/>
+       <LoginFaceBook/>
+      </View>
       <View style={styles.headMessaging}>
         <Text style={styles.TextNon}>Push Notification </Text>
         <Text style={styles.TitleNon}>{`Name: ${notification?.title}`}</Text>
         <Text style={styles.TitleNon}>{`About me: ${notification?.body}`}</Text>
         <Image style={styles.ImageNon} source={{ uri: notification?.image }} />
       </View>
-      <View style={styles.LoginApp}>
-        <LoginGoogle styles={styles.LoginGoogle}/>
-       <LoginFaceBook/>
+      <View>
+      <CallApi/>
       </View>
+      </ScrollView>
     </SafeAreaView>
   )
 }

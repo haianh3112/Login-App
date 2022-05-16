@@ -17,6 +17,7 @@ public class MainActivity extends ReactActivity {
   protected String getMainComponentName() {
     return "Push";
   }
+  
 
   /**
    * Returns the instance of the {@link ReactActivityDelegate}. There the RootView is created and

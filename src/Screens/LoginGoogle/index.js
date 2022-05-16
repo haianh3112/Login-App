@@ -15,15 +15,15 @@ const LoginGoogle = () => {
     GoogleSignin.configure({
       scopes: ['email'], 
       webClientId:
-        '322286351118-etab1knhf4rru03u8e45j90l65h4ir51.apps.googleusercontent.com', 
+        '911098048649-0fit1c2o0i90f4a35ciotdr3ea020su9.apps.googleusercontent.com', 
       offlineAccess: true, 
     });
-    const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
-    return subscriber; // unsubscribe on unmount
+    const subscriber = auth().onAuthStateChanged(onAuthStateChanged);// run in every componentDidMount event call
+    return subscriber; // unsubscribe on unmount hủy đăng nhập khi hủy gắn kết
   }, []);
 
 
-
+  //create SignIn arrow function 
   const SignIn = async () => {
     try {
       await GoogleSignin.hasPlayServices();
@@ -34,6 +34,7 @@ const LoginGoogle = () => {
         accessToken,
       );
       await auth().signInWithCredential(credential);
+      // save token in firebase
     } 
     catch (error) {
       if (error.code === statusCodes.SIGN_IN_CANCELLED) {
@@ -56,15 +57,15 @@ const LoginGoogle = () => {
     if (user) setloggedIn(true);
   }
 
+  //log out google function
   const signOut = async () => {
     try {
-      await GoogleSignin.revokeAccess();
-      await GoogleSignin.signOut();
-      auth()
+      await GoogleSignin.revokeAccess();// thu hồi quyền truy cập
+      await GoogleSignin.signOut();//
+      auth() //call the signOut method ,successfully logout
         .signOut()
         .then(() => alert('Your are signed out!'));
       setloggedIn(false);
-      // setUser([]);
     } catch (error) {
       console.error(error);
     }
