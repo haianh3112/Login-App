@@ -1,4 +1,4 @@
-package com.push.newarchitecture.modules;
+package com.nstudio.demo.newarchitecture.modules;
 
 import com.facebook.jni.HybridData;
 import com.facebook.react.ReactPackage;

@@ -4,7 +4,6 @@ import { StyleSheet, Text, View , SafeAreaView,
     FlatList,
     TouchableOpacity} from 'react-native'
 import React,{ useState,useEffect } from 'react'
-import PushNotification from 'react-native-push-notification';
 const Height_IMG=100;
 const iPadding=10;
 const ibottom=20;
@@ -16,23 +15,9 @@ export default function CallApi() {
     const scollY=React.useRef(new Animated.Value(0)).current;
     useEffect(() => {
         getListPhotos();
-        createChannels();
         return () => {};
       }, []);
 
-      const createChannels=()=>{
-          PushNotification.createChannel({
-              channelId:"test-channelId",
-              channelName:"Test Channel"
-          })
-      };
-      const handleNotification=(item)=>{
-        PushNotification.createChannel({
-            channelId:"test-channelId",
-            title:'You clicked on '+item.name,
-            message:item.title,
-        })
-      };
   
       getListPhotos = () => {
         const api = "https://62810fe71020d8520584fe66.mockapi.io/Title";
@@ -58,7 +43,7 @@ export default function CallApi() {
    
     
     return (
-        <TouchableOpacity onPress={handleNotification(item)}>
+        <TouchableOpacity>
       <Animated.View style={[styles.item,
       {transform:[{scale}],
     }

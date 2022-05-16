@@ -15,7 +15,7 @@ const LoginGoogle = () => {
     GoogleSignin.configure({
       scopes: ['email'], 
       webClientId:
-        '911098048649-0fit1c2o0i90f4a35ciotdr3ea020su9.apps.googleusercontent.com', 
+        '18247414881-5dn0pure1qlgkrabgs7570mfpnde40ev.apps.googleusercontent.com', 
       offlineAccess: true, 
     });
     const subscriber = auth().onAuthStateChanged(onAuthStateChanged);// run in every componentDidMount event call

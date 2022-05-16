@@ -1,4 +1,4 @@
-package com.push;
+package com.nstudio.demo;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
@@ -15,7 +15,7 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "Push";
+    return "MyApp";
   }
   
 
