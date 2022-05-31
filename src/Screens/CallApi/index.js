@@ -1,4 +1,5 @@
 import { StyleSheet, Text, View , SafeAreaView,
+	jjjjjjj,
     Animated,  Image,
     ActivityIndicator,
     FlatList,
